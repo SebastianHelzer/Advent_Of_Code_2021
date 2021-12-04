@@ -30,11 +30,11 @@ fun getPositionAfterMovementWithAim(filename: String): Pair<Int, Int> {
     return position.x to position.y
 }
 
-fun readMovementCommandsFromFile(filename: String): List<MovementCommand> {
+private fun readMovementCommandsFromFile(filename: String): List<MovementCommand> {
     return File(filename).readLines().map { parseLineIntoMovementCommand(it) }
 }
 
-fun parseLineIntoMovementCommand(line: String): MovementCommand {
+private fun parseLineIntoMovementCommand(line: String): MovementCommand {
     val words = line.split(' ')
     if (words.size < 2) throw Error("Cannot parse command")
     val directionWord = words[0]

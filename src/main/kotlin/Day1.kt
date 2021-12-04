@@ -13,7 +13,7 @@ fun getDepthIncreasesWithRollingSum(filename: String): Int {
     return comparisons.count { it == Comparisons.MoreThan }
 }
 
-fun getRollingAveragesFromNumber(values: List<Int>): List<Int> {
+private fun getRollingAveragesFromNumber(values: List<Int>): List<Int> {
     if (values.size < 3) return emptyList()
 
     val array = ArrayList<Int>()
@@ -28,7 +28,7 @@ fun getRollingAveragesFromNumber(values: List<Int>): List<Int> {
     }
 }
 
-fun getComparisonsFromNumbers(numbers: List<Int>): List<Comparisons> {
+private fun getComparisonsFromNumbers(numbers: List<Int>): List<Comparisons> {
     if(numbers.isEmpty()) return emptyList()
     var temp = numbers.first()
     return numbers.drop(1).map {
@@ -42,7 +42,7 @@ fun getComparisonsFromNumbers(numbers: List<Int>): List<Comparisons> {
     }
 }
 
-fun getNumbersFromFile(filename: String): List<Int> = File(filename).readLines().map { it.toInt() }
+private fun getNumbersFromFile(filename: String): List<Int> = File(filename).readLines().map { it.toInt() }
 
 enum class Comparisons {
     LessThan, Equal, MoreThan,
