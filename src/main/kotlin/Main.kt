@@ -5,7 +5,7 @@ fun main(args: Array<String>) {
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
     println("Program arguments: ${args.joinToString()}")
 
-    val day = 3
+    val day = 4
     val test = false
     val testFileAppendage = if (test) "_test" else ""
 
@@ -21,6 +21,10 @@ fun main(args: Array<String>) {
         3 -> {
             println("Power Consumed: ${processPowerConsumption(localFilename("diagnostics$testFileAppendage.txt"))}")
             println("Life Support Rating: ${getLifeSupportRating(localFilename("diagnostics$testFileAppendage.txt"))}")
+        }
+        4 -> {
+            println("Winning bingo score: ${playBingo(localFilename("bingo$testFileAppendage.txt"))}")
+            println("Losing bingo score: ${loseAtBingo(localFilename("bingo$testFileAppendage.txt"))}")
         }
     }
 }
