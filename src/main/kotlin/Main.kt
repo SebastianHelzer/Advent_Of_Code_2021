@@ -33,13 +33,6 @@ fun main(args: Array<String>) {
         6 -> {
             println("Lantern Fish Simulation: ${simulateLanternFish(localFilename("fish$testFileAppendage.txt"))}")
             println("Lantern Fish Simulation for 256: ${simulateLanternFish(localFilename("fish$testFileAppendage.txt"), 256)}")
-
-
-            //Lantern Fish Simulation: 5934
-            //Lantern Fish Simulation for 256: 1 214 653 763
-
-            //Lantern Fish Simulation: 365131
-            //Lantern Fish Simulation for 256: 1 041 836 936
         }
     }
 }

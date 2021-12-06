@@ -29,13 +29,6 @@ class Day6Tests {
     }
 
     @Test
-    fun longSimulation() {
-        val fish = listOf(3,4,3,1,2)
-        assertEquals(26984457539, fish.simulateLanternFish(256).size)
-        // 39222586 and 75 days left before breaking
-    }
-
-    @Test
     fun longFastSimulation() {
         val fish = listOf(3,4,3,1,2)
         assertEquals(5, simulateFishFast(fish, 1))

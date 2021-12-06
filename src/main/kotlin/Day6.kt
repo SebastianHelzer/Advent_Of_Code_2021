@@ -1,6 +1,6 @@
 import java.io.File
 
-fun simulateLanternFish(filename: String, days: Int = 80): Int {
+fun simulateLanternFish(filename: String, days: Int = 80): Long {
     val fish: List<Int> = getNumbersFromFile(filename)
     return simulateFishFast(fish, days)
 }
@@ -16,23 +16,23 @@ fun List<Int>.simulateLanternFish(days: Int): List<Int> {
 
 }
 
-fun simulateFishFast(list: List<Int>, days: Int): Int {
+fun simulateFishFast(list: List<Int>, days: Int): Long {
     val fish: Map<Long, Long> = list.groupingBy { it }.eachCount().map { it.key.toLong() to it.value.toLong() }.toMap()
-    return simulateFishFast(fish, days).values.sum().toInt()
+    return simulateFishFast(fish, days).values.sum()
 }
 
 fun simulateFishFast(map: Map<Long, Long>, days: Int): Map<Long, Long> {
     if(days <= 0) return map
     return simulateFishFast(mapOf(
-        0L to map.getOrDefault(1L, 0),
-        1L to map.getOrDefault(2L, 0),
-        2L to map.getOrDefault(3L, 0),
-        3L to map.getOrDefault(4L, 0),
-        4L to map.getOrDefault(5L, 0),
-        5L to map.getOrDefault(6L, 0),
-        6L to map.getOrDefault(7L, 0) + map.getOrDefault(0L, 0),
-        7L to map.getOrDefault(8L, 0),
-        8L to map.getOrDefault(0L, 0),
+        0L to map.getOrDefault(1L, 0L),
+        1L to map.getOrDefault(2L, 0L),
+        2L to map.getOrDefault(3L, 0L),
+        3L to map.getOrDefault(4L, 0L),
+        4L to map.getOrDefault(5L, 0L),
+        5L to map.getOrDefault(6L, 0L),
+        6L to map.getOrDefault(7L, 0L) + map.getOrDefault(0L, 0L),
+        7L to map.getOrDefault(8L, 0L),
+        8L to map.getOrDefault(0L, 0L),
     ),days - 1)
 }
 
