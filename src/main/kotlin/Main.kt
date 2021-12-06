@@ -5,7 +5,7 @@ fun main(args: Array<String>) {
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
     println("Program arguments: ${args.joinToString()}")
 
-    val day = 5
+    val day = 6
     val test = false
     val testFileAppendage = if (test) "_test" else ""
 
@@ -29,6 +29,17 @@ fun main(args: Array<String>) {
         5 -> {
             println("How many dangerous orthogonal vents: ${howManyDangerousVents(localFilename("vents$testFileAppendage.txt"))}")
             println("How many dangerous vents: ${howManyDangerousVents(localFilename("vents$testFileAppendage.txt"), true)}")
+        }
+        6 -> {
+            println("Lantern Fish Simulation: ${simulateLanternFish(localFilename("fish$testFileAppendage.txt"))}")
+            println("Lantern Fish Simulation for 256: ${simulateLanternFish(localFilename("fish$testFileAppendage.txt"), 256)}")
+
+
+            //Lantern Fish Simulation: 5934
+            //Lantern Fish Simulation for 256: 1 214 653 763
+
+            //Lantern Fish Simulation: 365131
+            //Lantern Fish Simulation for 256: 1 041 836 936
         }
     }
 }
