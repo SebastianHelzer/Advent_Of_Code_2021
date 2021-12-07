@@ -1,4 +1,4 @@
-import java.io.File
+import TxtIO.getNumbersFromFile
 
 fun getDepthIncreases(filename: String): Int {
     val depthValues: List<Int> = getNumbersFromFile(filename)
@@ -41,8 +41,6 @@ private fun getComparisonsFromNumbers(numbers: List<Int>): List<Comparisons> {
         value
     }
 }
-
-private fun getNumbersFromFile(filename: String): List<Int> = File(filename).readLines().map { it.toInt() }
 
 enum class Comparisons {
     LessThan, Equal, MoreThan,

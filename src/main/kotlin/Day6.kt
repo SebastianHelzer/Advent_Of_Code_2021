@@ -1,11 +1,9 @@
-import java.io.File
+import TxtIO.getNumbersFromFileWithDDelimiter
 
 fun simulateLanternFish(filename: String, days: Int = 80): Long {
-    val fish: List<Int> = getNumbersFromFile(filename)
+    val fish: List<Int> = getNumbersFromFileWithDDelimiter(filename)
     return simulateFishFast(fish, days)
 }
-
-private fun getNumbersFromFile(filename: String): List<Int> = File(filename).readLines().map { it.split(",").map { it.toInt() } }.flatten()
 
 fun List<Int>.simulateLanternFish(days: Int): List<Int> {
 

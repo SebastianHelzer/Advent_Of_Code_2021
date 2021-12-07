@@ -1,4 +1,4 @@
-import java.io.File
+import TxtIO.getLinesFromFile
 import kotlin.math.abs
 
 fun howManyDangerousVents(filename: String, checkDiagonals: Boolean = false): Int {
@@ -6,17 +6,6 @@ fun howManyDangerousVents(filename: String, checkDiagonals: Boolean = false): In
     val dangerPoints = lines.map { it.toPoints() }.flatten()
     val groupedPoint = dangerPoints.groupingBy { it }.eachCount().filter { it.value > 1 }
     return groupedPoint.size
-}
-
-private fun getLinesFromFile(filename: String): List<Line> {
-    val lines = File(filename).readLines()
-    return lines.map { it.toLine() }
-}
-
-private fun String.toLine(): Line {
-    val ints = this.split(","," -> ").map { it.toInt() }
-    if(ints.size != 4) throw Error("Cannot convert $this to line")
-    return Line(Position(ints[0],ints[1]), Position(ints[2],ints[3]))
 }
 
 data class Line(val start: Position, val end: Position) {

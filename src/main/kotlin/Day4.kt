@@ -1,4 +1,4 @@
-import java.io.File
+import TxtIO.parseBingoFile
 
 fun playBingo(filename: String): Int {
     val (hints, cards) = parseBingoFile(filename)
@@ -16,16 +16,6 @@ private fun scoreCard(card: BingoCard, hints: List<Int>, hintIndex: Int): Int {
     val hintsGiven = hints.take(hintIndex + 1).toSet()
     val hint = hints[hintIndex]
     return card.rows.flatten().toSet().minus(hintsGiven).sum() * hint
-}
-
-private fun parseBingoFile(filename: String): Pair<List<Int>, List<BingoCard>> {
-    val lines = File(filename).readLines()
-    if (lines.size < 5) throw Error("Not enough data")
-    val numbers = lines.first().toInts()
-
-    val cards: List<BingoCard> = lines.drop(1).filter { it != "" }.toBingoCards()
-
-    return numbers to cards
 }
 
 private fun findWinningCard(hints: List<Int>, cards: List<BingoCard>): Pair<BingoCard, Int> {
@@ -58,28 +48,5 @@ private fun findLosingCard(hints: List<Int>, cards: List<BingoCard>): Pair<Bingo
         }
     }.flatten().let { return it.lastOrNull() ?: throw Error("Unable to find a losing card") }
 }
-
-private fun List<String>.toBingoCards(): List<BingoCard> {
-    val rows = this.map { it.toInts() }
-
-    return (rows.indices step 5).map {
-        BingoCard(
-            listOf(
-                rows[it + 0],
-                rows[it + 1],
-                rows[it + 2],
-                rows[it + 3],
-                rows[it + 4],
-                )
-        )
-    }
-}
-
-private fun lineToNumbers(line: String): List<Int> {
-    val temp = line.replace("  ", " ").trimStart().split(' ', ',')
-    return temp.map { it.toInt() }
-}
-
-private fun String.toInts(): List<Int> = lineToNumbers(this)
 
 class BingoCard(val rows: List<List<Int>>)

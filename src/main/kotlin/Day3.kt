@@ -1,4 +1,4 @@
-import java.io.File
+import TxtIO.readBinaryNumbersFromFile
 import kotlin.math.pow
 
 fun processPowerConsumption(filename: String): Int {
@@ -41,7 +41,6 @@ private fun filterNumberByBitBackward(bits: List<List<Boolean>>, bitIndex: Int =
     }
 }
 
-private fun readBinaryNumbersFromFile(filename: String): List<String> = File(filename).readLines()
 
 private fun getGammaAndEpsilon(numbers: List<String>): Pair<Int, Int> {
     val bytes = numbers.map { it.toInt(2) }
