@@ -11,7 +11,7 @@ object TxtIO {
     }
 
     // Day 3
-    fun readBinaryNumbersFromFile(filename: String): List<String> = File(filename).readLines()
+    fun readLinesFromFile(filename: String): List<String> = File(filename).readLines()
 
     // Day 4
     fun parseBingoFile(filename: String): Pair<List<Int>, List<BingoCard>> {

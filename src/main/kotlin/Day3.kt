@@ -1,14 +1,14 @@
-import TxtIO.readBinaryNumbersFromFile
+import TxtIO.readLinesFromFile
 import kotlin.math.pow
 
 fun processPowerConsumption(filename: String): Int {
-    val binaryNumbers: List<String> = readBinaryNumbersFromFile(filename)
+    val binaryNumbers: List<String> = readLinesFromFile(filename)
     val (gamma, epsilon) = getGammaAndEpsilon(binaryNumbers)
     return gamma * epsilon
 }
 
 fun getLifeSupportRating(filename: String): Int {
-    val binaryNumbers: List<String> = readBinaryNumbersFromFile(filename)
+    val binaryNumbers: List<String> = readLinesFromFile(filename)
     val allTheBits = intsToBits(binaryNumbers.map { it.toInt(2) })
     val oxyBits = filterNumberByBit(allTheBits)
     val oxygen = bitsToInt(oxyBits)

@@ -5,7 +5,7 @@ fun main(args: Array<String>) {
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
     println("Program arguments: ${args.joinToString()}")
 
-    val day = 7
+    val day = 8
     val test = false
     val testFileAppendage = if (test) "_test" else ""
 
@@ -37,6 +37,11 @@ fun main(args: Array<String>) {
         7 -> {
             println("Crab submarine fuel consumption ${findLowestCrabSubmarineFuelConsumption(localFilename("crab$testFileAppendage.txt"))}")
             println("Crab submarine true fuel consumption ${findLowestCrabSubmarineFuelConsumption(localFilename("crab$testFileAppendage.txt"), true)}")
+        }
+        8 -> {
+            println("Seven segment output values: ${decipherSignalsFromFile(localFilename("seven_seg.txt"))}")
+            println("Seven segment output values: ${sumSevenSegsFromFIle(localFilename("seven_seg.txt"))}")
+
         }
     }
 }
