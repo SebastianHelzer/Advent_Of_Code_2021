@@ -5,7 +5,7 @@ fun main(args: Array<String>) {
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
     println("Program arguments: ${args.joinToString()}")
 
-    val day = 9
+    val day = 10
     val test = false
     val testFileAppendage = if (test) "_test" else ""
 
@@ -45,6 +45,10 @@ fun main(args: Array<String>) {
         9 -> {
             println("Risk level ${getRiskLevelFromFile(localFilename("smoke.txt"))}")
             println("Combined basin size ${getCombinedBasinSizeFromFile(localFilename("smoke.txt"))}")
+        }
+        10 -> {
+            println("Chunk score ${scoreChunksByFilename(localFilename("chunk.txt"))}")
+            println("Chunk score ${scoreChunksAutoCompleteByFilename(localFilename("chunk.txt"))}")
         }
     }
 }
