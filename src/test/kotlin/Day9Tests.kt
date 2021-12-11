@@ -1,3 +1,4 @@
+import TestUtils.testFilename
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -51,6 +52,4 @@ class Day9Tests {
     fun getCombinedBasinSize() {
         assertEquals(1134,getCombinedBasinSizeFromFile(testFilename("Day9")))
     }
-
-    private fun testFilename(filename: String): String = "src/test/resources/$filename.txt"
 }

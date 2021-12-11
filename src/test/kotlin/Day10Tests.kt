@@ -1,3 +1,4 @@
+import TestUtils.testFilename
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
@@ -65,7 +66,7 @@ class Day10Tests {
             "])}>",
         )
 
-        val expectedScores = listOf(
+        val expectedScores = listOf<Long>(
             288957,
             5566,
             1480781,
@@ -92,5 +93,4 @@ class Day10Tests {
         assertEquals("ABCDE",string.joinToString(separator = ""))
     }
 
-    private fun testFilename(filename: String): String = "src/test/resources/$filename.txt"
 }

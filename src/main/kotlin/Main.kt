@@ -5,7 +5,7 @@ fun main(args: Array<String>) {
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
     println("Program arguments: ${args.joinToString()}")
 
-    val day = 10
+    val day = 11
     val test = false
     val testFileAppendage = if (test) "_test" else ""
 
@@ -49,6 +49,10 @@ fun main(args: Array<String>) {
         10 -> {
             println("Chunk score ${scoreChunksByFilename(localFilename("chunk.txt"))}")
             println("Chunk score ${scoreChunksAutoCompleteByFilename(localFilename("chunk.txt"))}")
+        }
+        11 -> {
+            Day11.part1(localFilename("octopuses.txt"))
+            Day11.part2(localFilename("octopuses.txt"))
         }
     }
 }

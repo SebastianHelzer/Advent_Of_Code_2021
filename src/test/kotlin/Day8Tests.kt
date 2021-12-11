@@ -1,3 +1,4 @@
+import TestUtils.testFilename
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -87,6 +88,4 @@ class Day8Tests {
         assertEquals(5353, sumSevenSegsFromFIle(testFilename("Day8_1")))
         assertEquals(61229, sumSevenSegsFromFIle(testFilename("Day8_2")))
     }
-
-    private fun testFilename(filename: String): String = "src/test/resources/$filename.txt"
 }
